@@ -449,7 +449,7 @@ import wNim/private/wBase
 import wNim/private/controls/wControl
 export wControl
 
-DefineEvent:
+wEventRegister(wCommandEvent):
   wEvent_ZeeGridFirst
   wEvent_ZeeGridButtonPressed
   wEvent_ZeeGridCellClicked
