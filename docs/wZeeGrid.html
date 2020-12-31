@@ -1148,7 +1148,7 @@ function main() {
   </ul>
   <ul class="simple nested-toc-section">interpretBool
       <li><a class="reference" href="#interpretBool%2CwZeeGrid%2Cint%2Cbool"
-    title="interpretBool(self: wZeeGrid; iCol: int = -1; fEnable: bool = true)">interpretBool,<wbr>wZeeGrid,<wbr>int,<wbr>bool</a></li>
+    title="interpretBool(self: wZeeGrid; iCol: int; fEnable: bool = true)">interpretBool,<wbr>wZeeGrid,<wbr>int,<wbr>bool</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">mergeRows
@@ -1439,7 +1439,7 @@ function main() {
   </ul>
   <ul class="simple nested-toc-section">interpretDates
       <li><a class="reference" href="#interpretDates%2CwZeeGrid%2Cint%2Cbool"
-    title="interpretDates(self: wZeeGrid; iCol: int = -1; fEnable: bool = true)">interpretDates,<wbr>wZeeGrid,<wbr>int,<wbr>bool</a></li>
+    title="interpretDates(self: wZeeGrid; iCol: int; fEnable: bool = true)">interpretDates,<wbr>wZeeGrid,<wbr>int,<wbr>bool</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">allocateRows
@@ -1655,7 +1655,7 @@ function main() {
   </ul>
   <ul class="simple nested-toc-section">interpretNumeric
       <li><a class="reference" href="#interpretNumeric%2CwZeeGrid%2Cint%2Cbool"
-    title="interpretNumeric(self: wZeeGrid; iCol: int = -1; fEnable: bool = true)">interpretNumeric,<wbr>wZeeGrid,<wbr>int,<wbr>bool</a></li>
+    title="interpretNumeric(self: wZeeGrid; iCol: int; fEnable: bool = true)">interpretNumeric,<wbr>wZeeGrid,<wbr>int,<wbr>bool</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">setRowNumPrecision
@@ -5983,7 +5983,7 @@ Sends a ZGM_INSERTROW message to insert a row before the specified row in the Ze
 
 </dd>
 <a id="interpretBool,wZeeGrid,int,bool"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#interpretBool%2CwZeeGrid%2Cint%2Cbool"><span class="Identifier">interpretBool</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="wZeeGrid.html#wZeeGrid"><span class="Identifier">wZeeGrid</span></a><span class="Other">;</span> <span class="Identifier">iCol</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Operator">-</span><span class="DecNumber">1</span><span class="Other">;</span> <span class="Identifier">fEnable</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<dt><pre><span class="Keyword">proc</span> <a href="#interpretBool%2CwZeeGrid%2Cint%2Cbool"><span class="Identifier">interpretBool</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="wZeeGrid.html#wZeeGrid"><span class="Identifier">wZeeGrid</span></a><span class="Other">;</span> <span class="Identifier">iCol</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">fEnable</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
@@ -5991,7 +5991,7 @@ Sends a ZGM_INTERPRETBOOL message to enable or disable the interpretation of the
 <dd><dl class="docutils"><dt>fEnable</dt>
 <dd>Value of wParam. Specifies whether to enable or disable the interpretation of entered text as boolean 'TRUE' and 'FALSE'. If enabled and the text 'TRUE' is entered in a cell, ZeeGrid will display that cell as a checked checkbox. If disabled, the text will be displayed literally as 'TRUE'.</dd>
 <dt>iCol</dt>
-<dd>The Column number this applies to.. -1 is the entire grid.</dd>
+<dd>The Column number this applies to.</dd>
 </dl>
 </dd>
 <dt>Return Values:</dt>
@@ -6003,7 +6003,7 @@ Sends a ZGM_INTERPRETBOOL message to enable or disable the interpretation of the
 
 </dd>
 <a id="interpretDates,wZeeGrid,int,bool"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#interpretDates%2CwZeeGrid%2Cint%2Cbool"><span class="Identifier">interpretDates</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="wZeeGrid.html#wZeeGrid"><span class="Identifier">wZeeGrid</span></a><span class="Other">;</span> <span class="Identifier">iCol</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Operator">-</span><span class="DecNumber">1</span><span class="Other">;</span> <span class="Identifier">fEnable</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<dt><pre><span class="Keyword">proc</span> <a href="#interpretDates%2CwZeeGrid%2Cint%2Cbool"><span class="Identifier">interpretDates</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="wZeeGrid.html#wZeeGrid"><span class="Identifier">wZeeGrid</span></a><span class="Other">;</span> <span class="Identifier">iCol</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">fEnable</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
@@ -6011,7 +6011,7 @@ Sends a ZGM_INTERPRETDATES message to enable or disable the interpretation of te
 <dd><dl class="docutils"><dt>fEnable</dt>
 <dd>Value of wParam. Specifies whether to enable or disable the interpretation of entered text as a date. If enabled and the text '12/28/58' is entered in a cell, ZeeGrid will display that cell as a date text string, for instance 'December 28, 1958', and right justify it in the cell. If disabled, the text will be displayed literally as '12/28/58'.</dd>
 <dt>iCol</dt>
-<dd>The Column number this applies to.. -1 is the entire grid.</dd>
+<dd>The Column number this applies to.</dd>
 </dl>
 </dd>
 <dt>Return Values:</dt>
@@ -6023,7 +6023,7 @@ Sends a ZGM_INTERPRETDATES message to enable or disable the interpretation of te
 
 </dd>
 <a id="interpretNumeric,wZeeGrid,int,bool"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#interpretNumeric%2CwZeeGrid%2Cint%2Cbool"><span class="Identifier">interpretNumeric</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="wZeeGrid.html#wZeeGrid"><span class="Identifier">wZeeGrid</span></a><span class="Other">;</span> <span class="Identifier">iCol</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="Operator">-</span><span class="DecNumber">1</span><span class="Other">;</span> <span class="Identifier">fEnable</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<dt><pre><span class="Keyword">proc</span> <a href="#interpretNumeric%2CwZeeGrid%2Cint%2Cbool"><span class="Identifier">interpretNumeric</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="wZeeGrid.html#wZeeGrid"><span class="Identifier">wZeeGrid</span></a><span class="Other">;</span> <span class="Identifier">iCol</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">fEnable</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
@@ -6031,7 +6031,7 @@ Sends a ZGM_INTERPRETNUMERIC message to enable or disable the interpretation of 
 <dd><dl class="docutils"><dt>fEnable</dt>
 <dd>Value of wParam. Specifies whether to enable or disable the interpretation of entered text as numeric values. If enabled and the text '3.145' is entered in a cell, ZeeGrid will display that cell as a right justified numeric value. If disabled, the text will be displayed as a left justified text string '3.145'.</dd>
 <dt>iCol</dt>
-<dd>The Column number this applies to.. -1 is the entire grid.</dd>
+<dd>The Column number this applies to.</dd>
 </dl>
 </dd>
 <dt>Return Values:</dt>
@@ -7974,7 +7974,7 @@ Constructor, creating and showing a zeegrid control.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-31 15:25:24 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-31 16:39:12 UTC</small>
       </div>
     </div>
   </div>
