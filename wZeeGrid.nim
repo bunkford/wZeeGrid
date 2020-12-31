@@ -2635,7 +2635,7 @@ proc insertRow*(self: wZeeGrid, iRow:int):int {.validate, inline.} =
   # lParam = 0;                         //not used; must be zero
   result = cast[int](SendMessage(self.mHwnd, ZGM_INSERTROW, iRow, 0))
 
-proc interpretBool*(self: wZeeGrid, fEnable:bool = true) {.validate, property.} = 
+proc interpretBool*(self: wZeeGrid, iCol:int = -1, fEnable:bool = true) {.validate, property.} = 
   ## Sends a ZGM_INTERPRETBOOL message to enable or disable the interpretation of the text 'TRUE' and 'FALSE' 
   ## as boolean when entered from an editable cell by the user, or programmatically entered into the cell with the ZGM_SETCELLTEXT message.
   ##
@@ -2645,6 +2645,9 @@ proc interpretBool*(self: wZeeGrid, fEnable:bool = true) {.validate, property.} 
   ##    If enabled and the text 'TRUE' is entered in a cell, ZeeGrid will display that cell as a checked checkbox. If disabled, 
   ##    the text will be displayed literally as 'TRUE'.
   ##
+  ##  iCol
+  ##    The Column number this applies to.. -1 is the entire grid. 
+  ## 
   ## Return Values:
   ##  This message does not return a value.
   ##
@@ -2653,11 +2656,11 @@ proc interpretBool*(self: wZeeGrid, fEnable:bool = true) {.validate, property.} 
   ##  When enabled, the entered text is converted to uppercase and tested for a match with 'TRUE' or 'FALSE'. Therefore, 
   ##  the text strings 'True','trUE', and 'TrUe' would all be interpreted as boolean.
   #
-  # wParam = (WPARAM) (BOOL) fEnable;  //enable flag
-  # lParam = 0;                        //not used; must be zero
-  SendMessage(self.mHwnd, ZGM_INTERPRETBOOL, fEnable, 0) 
+  # wParam = (WPARAM)(int) iCol;        //Column number
+  # lParam = (WPARAM) (BOOL) fEnable;  //enable flag
+  SendMessage(self.mHwnd, ZGM_INTERPRETBOOL, iCol, fEnable) 
 
-proc interpretDates*(self: wZeeGrid, fEnable:bool = true) {.validate, property.} = 
+proc interpretDates*(self: wZeeGrid, iCol:int = -1, fEnable:bool = true) {.validate, property.} = 
   ## Sends a ZGM_INTERPRETDATES message to enable or disable the interpretation of text as a date when entered 
   ## from an editable cell by the user, or programmatically entered into the cell with the ZGM_SETCELLTEXT message.
   ##
@@ -2667,17 +2670,20 @@ proc interpretDates*(self: wZeeGrid, fEnable:bool = true) {.validate, property.}
   ##    If enabled and the text '12/28/58' is entered in a cell, ZeeGrid will display that cell as a date text string, 
   ##    for instance 'December 28, 1958', and right justify it in the cell. If disabled, the text will be displayed literally as '12/28/58'.
   ##
+  ##  iCol
+  ##    The Column number this applies to.. -1 is the entire grid. 
+  ## 
   ## Return Values:
   ##  This message does not return a value.
   ##
   ## Remarks:
   ##  Interpret dates is enabled by default.
   #
-  # wParam = (WPARAM) (BOOL) fEnable;  //enable flag
-  # lParam = 0;                        //not used; must be zero
-  SendMessage(self.mHwnd, ZGM_INTERPRETDATES, fEnable, 0) 
+  # wParam = (WPARAM)(int) iCol;        //Column number
+  # lParam = (WPARAM) (BOOL) fEnable;  //enable flag
+  SendMessage(self.mHwnd, ZGM_INTERPRETDATES, iCol, fEnable) 
 
-proc interpretNumeric*(self: wZeeGrid, fEnable:bool = true) {.validate, property.} = 
+proc interpretNumeric*(self: wZeeGrid, iCol:int = -1, fEnable:bool = true) {.validate, property.} = 
   ## Sends a ZGM_INTERPRETNUMERIC message to enable or disable the interpretation of text as a numeric value when entered from an 
   ## editable cell by the user, or programmatically entered into the cell with the ZGM_SETCELLTEXT message.
   ##
@@ -2687,15 +2693,18 @@ proc interpretNumeric*(self: wZeeGrid, fEnable:bool = true) {.validate, property
   ##    If enabled and the text '3.145' is entered in a cell, ZeeGrid will display that cell as a right justified numeric value. 
   ##    If disabled, the text will be displayed as a left justified text string '3.145'.
   ##
+  ##  iCol
+  ##    The Column number this applies to.. -1 is the entire grid. 
+  ##
   ## Return Values:
   ##  This message does not return a value.
   ##
   ## Remarks:
   ##  Interpret numeric is enabled by default.
   #
-  # wParam = (WPARAM) (BOOL) fEnable;  //enable flag
-  # lParam = 0;                        //not used; must be zero
-  SendMessage(self.mHwnd, ZGM_INTERPRETNUMERIC, fEnable, 0) 
+  # wParam = (WPARAM)(int) iCol;        //Column number
+  # lParam = (WPARAM) (BOOL) fEnable;  //enable flag
+  SendMessage(self.mHwnd, ZGM_INTERPRETNUMERIC, iCol, fEnable) 
 
 proc isDateValid*(self: wZeeGrid, lpszString:string):int {.validate, inline.} = 
   ## Sends a ZGM_ISDATEVALID message to test the validity of a date represented as a null-terminated character string.
